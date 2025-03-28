@@ -41,7 +41,6 @@ class BaseNetworkDelayExperiment(NetworkChaos, ABC):
         return {
             "action": self.action(),
             "correlation": "0",
-            "direction": "both",
             "jitter": "0ms",
             "mode": "one"
         }
@@ -83,6 +82,5 @@ class BaseNetworkDelayExperiment(NetworkChaos, ABC):
                 "latency": self.kwargs['latency'],
                 "correlation": self.kwargs['correlation'],
                 "jitter": self.kwargs['jitter'],
-            },
-            "direction": self.kwargs['direction']
+            }
         }
