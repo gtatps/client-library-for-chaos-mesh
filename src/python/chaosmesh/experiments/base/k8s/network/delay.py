@@ -41,9 +41,11 @@ class BaseNetworkDelayExperiment(NetworkChaos, ABC):
         return {
             "action": self.action(),
             "correlation": "0",
+            "direction": "to",
             "duration": "",
             "jitter": "0ms",
-            "mode": "one"
+            "mode": "one",
+            "external_targets": ""
         }
 
     def validate(self) -> None:
@@ -85,5 +87,7 @@ class BaseNetworkDelayExperiment(NetworkChaos, ABC):
                 "correlation": self.kwargs['correlation'],
                 "jitter": self.kwargs['jitter'],
             },
+            "targets": asdict(self.kwargs['selector']),
+            "externalTargets": self.kwargs['external_targets'],
         }
 
